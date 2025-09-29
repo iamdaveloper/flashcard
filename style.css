@@ -1,14 +1,30 @@
 :root {
+    /* Light theme colors */
+    --color-bg: #f8f9fa;
+    --color-text: #333;
+    --color-card-bg: #ffffff;
+    --color-input-bg: #ffffff;
+    --color-border: #ddd;
+    
+    /* Common colors */
     --primary-color: #4a6fa5;
     --secondary-color: #166088;
     --accent-color: #4fc3f7;
-    --text-color: #333;
-    --light-color: #f8f9fa;
     --danger-color: #e63946;
     --success-color: #2a9d8f;
+    
+    /* Common styles */
     --border-radius: 8px;
     --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+}
+
+.theme-dark {
+    --color-bg: #1a1a1a;
+    --color-text: #f0f0f0;
+    --color-card-bg: #2d2d2d;
+    --color-input-bg: #3d3d3d;
+    --color-border: #555;
 }
 
 * {
@@ -20,9 +36,10 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--light-color);
+    color: var(--color-text);
+    background-color: var(--color-bg);
     padding: 20px;
+    transition: var(--transition);
 }
 
 .flashcard-app {
@@ -30,10 +47,52 @@ body {
     margin: 0 auto;
 }
 
+.flashcard-app__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.flashcard-app__header-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.flashcard-app__lang-toggle {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-text);
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    background-color: var(--color-input-bg);
+}
+
+.flashcard-app__lang-toggle:hover {
+    transform: scale(1.05);
+}
+
 .flashcard-app__title {
     text-align: center;
-    margin-bottom: 30px;
     color: var(--primary-color);
+    margin: 0;
+}
+
+.flashcard-app__theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-text);
+}
+
+.flashcard-app__theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 .flashcard-app__mode-switcher {
@@ -91,9 +150,11 @@ body {
     flex: 1;
     min-width: 200px;
     padding: 10px;
-    border: 1px solid #ddd;
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     transition: var(--transition);
+    color: var(--color-text);
 }
 
 .flashcard-app__input:focus {
@@ -123,7 +184,7 @@ body {
 }
 
 .flashcard-app__card {
-    background: white;
+    background: var(--color-card-bg);
     border-radius: var(--border-radius);
     padding: 20px;
     box-shadow: var(--box-shadow);
@@ -143,7 +204,7 @@ body {
 }
 
 .flashcard-app__definition {
-    color: var(--text-color);
+    color: var(--color-text);
 }
 
 .flashcard-app__delete-btn {
@@ -169,11 +230,12 @@ body {
 }
 
 .flashcard-app__question {
-    background: white;
+    background: var(--color-card-bg);
     border-radius: var(--border-radius);
     padding: 20px;
     box-shadow: var(--box-shadow);
     margin-bottom: 20px;
+    color: var(--color-text);
 }
 
 .flashcard-app__question-text {
@@ -184,9 +246,11 @@ body {
 .flashcard-app__answer-input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     margin-bottom: 10px;
+    color: var(--color-text);
 }
 
 .flashcard-app__submit-btn {

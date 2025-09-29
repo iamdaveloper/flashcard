@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4a6fa5">
+    <meta name="description" content="A flashcard application for language learning">
     <title>Flashcard Mini-Site</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="flashcard-app">
-        <h1 class="flashcard-app__title">Flashcard Mini-Site</h1>
+        <div class="flashcard-app__header">
+            <h1 class="flashcard-app__title" data-i18n="title">Flashcard Mini-Site</h1>
+            <div class="flashcard-app__header-controls">
+                <button class="flashcard-app__theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <button class="flashcard-app__lang-toggle" id="lang-toggle" aria-label="Toggle language">中文</button>
+            </div>
+        </div>
         
         <div class="flashcard-app__mode-switcher">
-            <button class="flashcard-app__mode-btn flashcard-app__mode-btn--active" data-mode="review">溫習 Mode</button>
-            <button class="flashcard-app__mode-btn" data-mode="quiz">測驗 Mode</button>
+                <button class="flashcard-app__mode-btn flashcard-app__mode-btn--active" data-mode="review" data-i18n="reviewMode">溫習 Mode</button>
+                <button class="flashcard-app__mode-btn" data-mode="quiz" data-i18n="quizMode">測驗 Mode</button>
         </div>
 
         <div class="flashcard-app__content" data-mode="review">
             <div class="flashcard-app__add-form">
                 <input type="text" class="flashcard-app__input" placeholder="Word" id="word-input">
                 <input type="text" class="flashcard-app__input" placeholder="Definition" id="definition-input">
-                <button class="flashcard-app__add-btn" id="add-btn">新增</button>
+                <button class="flashcard-app__add-btn" id="add-btn" data-i18n="add">新增</button>
             </div>
             <div class="flashcard-app__list" id="flashcards-list"></div>
         </div>
@@ -30,5 +39,18 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service-worker.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
 </body>
 </html>
