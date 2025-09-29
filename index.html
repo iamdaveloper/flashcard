@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Mini-Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="flashcard-app">
+        <h1 class="flashcard-app__title">Flashcard Mini-Site</h1>
+        
+        <div class="flashcard-app__mode-switcher">
+            <button class="flashcard-app__mode-btn flashcard-app__mode-btn--active" data-mode="review">溫習 Mode</button>
+            <button class="flashcard-app__mode-btn" data-mode="quiz">測驗 Mode</button>
+        </div>
+
+        <div class="flashcard-app__content" data-mode="review">
+            <div class="flashcard-app__add-form">
+                <input type="text" class="flashcard-app__input" placeholder="Word" id="word-input">
+                <input type="text" class="flashcard-app__input" placeholder="Definition" id="definition-input">
+                <button class="flashcard-app__add-btn" id="add-btn">新增</button>
+            </div>
+            <div class="flashcard-app__list" id="flashcards-list"></div>
+        </div>
+
+        <div class="flashcard-app__content flashcard-app__content--hidden" data-mode="quiz">
+            <div class="flashcard-app__quiz" id="quiz-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
