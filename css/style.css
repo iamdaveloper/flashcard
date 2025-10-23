@@ -65,15 +65,19 @@ main {
 /* 導航箭頭 */
 .nav-arrow {
   font-size: 2rem;
-  background: none;
+  background: none !important;
   border: none;
   cursor: pointer;
   color: #4CAF50;
   padding: 0.5rem;
+  transition: color 0.2s, transform 0.2s;
 }
 
-.nav-arrow:hover {
+.nav-arrow:hover,
+.nav-arrow:active {
+  background: none !important;
   color: #45a049;
+  transform: scale(1.1);
 }
 
 /* 單字卡樣式 */
