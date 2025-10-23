@@ -1,13 +1,15 @@
 const CACHE_NAME = 'flashcard-v1';
+const BASE_PATH = self.location.pathname.replace('/sw.js', '');
+
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/app.js',
-  '/vocab.csv',
-  '/images/icon-192.png',
-  '/images/icon-512.png',
-  '/manifest.json'
+  `${BASE_PATH}/`,
+  `${BASE_PATH}/index.html`,
+  `${BASE_PATH}/css/style.css`,
+  `${BASE_PATH}/js/app.js`,
+  `${BASE_PATH}/vocab.csv`,
+  `${BASE_PATH}/images/icon-192.png`,
+  `${BASE_PATH}/images/icon-512.png`,
+  `${BASE_PATH}/manifest.json`
 ];
 
 // Install Service Worker

@@ -24,7 +24,7 @@ const elements = {
 function init() {
   // Register Service Worker
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('./sw.js', { scope: './' })
       .then(registration => {
         console.log('ServiceWorker 註冊成功:', registration.scope);
       })
